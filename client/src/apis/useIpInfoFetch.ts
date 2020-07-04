@@ -30,7 +30,8 @@ export const useIpInfoFetch = (
 ) => {
   const fetchedIpInfo = useCallback(async () => {
     const { data } = await getRequest<IpInfo[]>({
-      url: "http://localhost:5001/ip/",
+      url: "/ip/",
+      // url: "http://localhost:5001/ip/",
       params,
     });
     console.log(data, "fetched!");

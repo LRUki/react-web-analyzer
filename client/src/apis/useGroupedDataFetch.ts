@@ -13,7 +13,8 @@ export const useGroupedDataFetch = (
     const { data } = await getRequest<
       FeatureCollection<Point, GeoJsonProperties>
     >({
-      url: `http://localhost:5001/ip/${group}`,
+      url: `/ip/${group}`,
+      // url: `http://localhost:5001/ip/${group}`,
     });
     return data;
   }, [group]);
