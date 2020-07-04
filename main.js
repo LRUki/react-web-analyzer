@@ -27,6 +27,9 @@ app.use(
 );
 app.use(cors());
 
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
+
 //get request
 app.get("/ip", async (req, res) => {
   const { size, sort, ...query } = req.query;
