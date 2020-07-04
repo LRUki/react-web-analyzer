@@ -25,6 +25,7 @@
     "typescript": "~3.7.2"
   },
   "proxy": "http://localhost:5001",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
