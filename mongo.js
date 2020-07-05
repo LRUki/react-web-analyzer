@@ -117,7 +117,6 @@ module.exports = class MyWebDB {
   }
 
   async read(query, option) {
-    console.log("here", option);
     const { sort, size } = option;
     let res;
     if (sort) {

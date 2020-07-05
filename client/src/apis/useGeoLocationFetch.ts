@@ -13,7 +13,6 @@ export const useGeoLocationFetch = () => {
     const { data: geoData } = await getRequest<GeoLocationResponse>({
       url: "/geolocation",
     });
-    console.log(geoData, "geo");
     return geoData;
   }, []);
 

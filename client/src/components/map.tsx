@@ -144,8 +144,7 @@ const MapRoot: FC<MapProps> = ({
         }, 2000);
       });
       //associating mostRedcentIpInfo with its location for teh zoom feature
-      console.log(mostRecentIpRefs, "refs");
-      console.log(mostRecentIpInfo, "info");
+
       for (
         let i = 0;
         i < Math.min(mostRecentIpRefs.length, mostRecentIpInfo.length);
