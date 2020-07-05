@@ -36,6 +36,11 @@ module.exports = class MyWebDB {
       },
       { collection: collection }
     );
+    this.schema.path("_id").required(true);
+    this.schema.path("country").required(true);
+    this.schema.path("region").required(true);
+    this.schema.path("city").required(true);
+    this.schema.path("loc").required(true);
     this.model = new mongoose.model(collection, this.schema);
   }
 
@@ -112,6 +117,7 @@ module.exports = class MyWebDB {
   }
 
   async read(query, option) {
+    console.log("here", option);
     const { sort, size } = option;
     let res;
     if (sort) {
@@ -119,7 +125,11 @@ module.exports = class MyWebDB {
         .find(query)
         .sort({ visits: -1 })
         .limit(size ? parseInt(size) : 0);
-      return res;
+
+      return res.filter(
+        ({ _id, country, region, city, loc }) =>
+          _id && country && region && city && loc
+      );
     }
     res = await this.model.find(query).limit(size ? parseInt(size) : 0);
     return res.filter(

@@ -144,8 +144,18 @@ const MapRoot: FC<MapProps> = ({
         }, 2000);
       });
       //associating mostRedcentIpInfo with its location for teh zoom feature
-      for (let i = 0; i < mostRecentIpRefs.length; i++) {
-        if (mostRecentIpInfo && mostRecentIpRefs) {
+      console.log(mostRecentIpRefs, "refs");
+      console.log(mostRecentIpInfo, "info");
+      for (
+        let i = 0;
+        i < Math.min(mostRecentIpRefs.length, mostRecentIpInfo.length);
+        i++
+      ) {
+        if (
+          mostRecentIpInfo[i] &&
+          mostRecentIpInfo[i].loc &&
+          mostRecentIpRefs[i]
+        ) {
           let lat = parseFloat(mostRecentIpInfo[i].loc.split(",")[0]);
           let lng = parseFloat(mostRecentIpInfo[i].loc.split(",")[1]);
           mostRecentIpRefs[i].current?.addEventListener("click", () => {
@@ -155,8 +165,6 @@ const MapRoot: FC<MapProps> = ({
               essential: true,
             });
           });
-        } else {
-          throw console.error("unmatching numer of refs and data");
         }
       }
 
