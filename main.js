@@ -63,8 +63,6 @@ app.get("/geolocation", async (req, res) => {
     ? forwarded.split(/, /)[0]
     : req.connection.remoteAddress;
   await ipInfo(ipv4, (error, ipinfo) => {
-    console.log(ipinfo, "ipinfo");
-    console.log(ipv4, "ipv4");
     const { loc } = ipinfo;
     res.send(
       loc

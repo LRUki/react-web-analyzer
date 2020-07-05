@@ -141,7 +141,7 @@ const MapRoot: FC<MapProps> = ({
       map.on("style.load", () => {
         setTimeout(() => {
           groupToSwitchRefs["region"]?.current?.click();
-        }, 2000);
+        }, 2500);
       });
       //associating mostRedcentIpInfo with its location for teh zoom feature
 
