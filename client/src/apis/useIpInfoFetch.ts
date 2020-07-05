@@ -34,7 +34,6 @@ export const useIpInfoFetch = (
       // url: "http://localhost:5001/ip/",
       params,
     });
-    console.log(data, "fetched!");
     return data;
   }, [
     params?.country,

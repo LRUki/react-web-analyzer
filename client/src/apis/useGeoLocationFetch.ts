@@ -20,6 +20,7 @@ export const useGeoLocationFetch = () => {
       url: `http://api.ipstack.com/${ipData.ip}`,
       params: { access_key: keys.ipstack },
     });
+    console.log(geoData, "geo");
     return geoData;
   }, []);
 

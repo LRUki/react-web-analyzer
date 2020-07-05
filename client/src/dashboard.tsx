@@ -137,7 +137,7 @@ export const Dashboard: FC<{}> = () => {
         p="10px"
         justifyContent="center"
         position="relative"
-        top="90vh"
+        top={window.window.outerHeight < 550 ? "80vh" : "90vh"}
         marginBottom="3vh"
         aboveMap
       >

@@ -7,7 +7,11 @@ export const LocationContainer: FC<Props> = ({ lat, lng }) => {
       p="10px"
       justifyContent="flex-start"
       color="white"
-      fontSize={window.window.outerWidth < 730 ? "3vw" : "1.7vw"}
+      fontSize={
+        window.window.outerWidth < 730 || window.window.outerHeight < 550
+          ? "3vw"
+          : "1.7vw"
+      }
     >
       <View m="10px">lat : {lat}</View>
       <View m="10px">lng : {lng}</View>

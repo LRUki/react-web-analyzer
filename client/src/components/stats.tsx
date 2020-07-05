@@ -39,11 +39,8 @@ export const Stats: FC<StatsProps> = React.memo(
           m="4px"
         >
           This web-app visualizes{" "}
-          <a href="http://www.leo-ryuta.work" style={{ color: "green" }}>
-            my website's
-          </a>{" "}
-          traffic. <Icon name="react" color="blue" /> Click the circle for more
-          details!
+          <a href="http://www.leo-ryuta.work">my website's</a> traffic.{" "}
+          <Icon name="react" color="blue" /> Click the circle for more details!
         </View>
         <View fontSize={window.window.outerWidth < 730 ? "2vw" : "1vw"}>
           <Statistic.Group

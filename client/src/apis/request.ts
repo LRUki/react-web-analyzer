@@ -2,6 +2,7 @@ import axios from "axios";
 export type RequestOption = {
   url: string;
   params?: any;
+  headers?: any;
 };
 
 export type Response<T> = {
@@ -25,9 +26,9 @@ const handleError = (error: any) => {
 export const getRequest = async <Data>(
   option: RequestOption
 ): Promise<Response<Data>> => {
-  const { url, params } = option;
+  const { url, params, headers } = option;
   try {
-    const response = await axios.get<Data>(url, { params });
+    const response = await axios.get<Data>(url, { headers: headers, params });
     return { data: response.data, status: response.status };
   } catch (error) {
     throw handleError(error);
