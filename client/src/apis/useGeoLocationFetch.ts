@@ -1,24 +1,17 @@
 import { useCallback } from "react";
 import { getRequest } from "./request";
 import { useFetch } from "../hooks/useFetch";
-import keys from "../keys";
 type IpResponse = { ip: string };
 type GeoLocationResponse = {
   latitude: number;
   longitude: number;
-  success?: boolean;
+  success: boolean;
+  error?: any;
 };
 export const useGeoLocationFetch = () => {
   const fetchGeoLocation = useCallback(async () => {
-    const { data: ipData } = await getRequest<IpResponse>({
-      url: "https://api.ipify.org/",
-      params: {
-        format: "json",
-      },
-    });
     const { data: geoData } = await getRequest<GeoLocationResponse>({
-      url: `http://api.ipstack.com/${ipData.ip}`,
-      params: { access_key: keys.ipstack },
+      url: "/geolocation",
     });
     console.log(geoData, "geo");
     return geoData;

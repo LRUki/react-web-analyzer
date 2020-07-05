@@ -1,11 +1,13 @@
 //jshint esversion:6
 const express = require("express");
+const ipInfo = require("ipinfo");
 const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const DB = require("./mongo");
+const { createCipher } = require("crypto");
 mongoose.connect(
   "mongodb+srv://admin-leo:Ryuta6040@cluster0-jgh79.mongodb.net/portfolioDB",
   {
@@ -52,6 +54,27 @@ app.get("/ip/:area", async (req, res) => {
       result = "invalidArgumentError";
   }
   res.send(result);
+});
+
+app.get("/geolocation", async (req, res) => {
+  //retrieving clients TRUE ip address
+  const forwarded = req.headers["x-forwarded-for"];
+  const ipv4 = forwarded
+    ? forwarded.split(/, /)[0]
+    : req.connection.remoteAddress;
+  await ipInfo(ipv4, (error, ipinfo) => {
+    const { loc } = ipinfo;
+
+    res.send(
+      loc
+        ? {
+            latitude: loc.split(",")[0],
+            longitude: loc.split(",")[1],
+            success: true,
+          }
+        : { success: false, error: error }
+    );
+  });
 });
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
