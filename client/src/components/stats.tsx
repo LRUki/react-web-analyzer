@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { View, Flexbox } from "./view";
 import { Icon, Statistic } from "semantic-ui-react";
+import { minWidthHeight } from "../styles/minWidthHeight";
 export type StatsProps = {
   totalVisits: number;
   numOfCountries: number;
@@ -34,7 +35,9 @@ export const Stats: FC<StatsProps> = React.memo(
     return (
       <>
         <View
-          fontSize={window.window.outerWidth < 730 ? "3vw" : "1.8vw"}
+          fontSize={
+            window.window.outerWidth < minWidthHeight.width ? "3vw" : "1.8vw"
+          }
           lineHeight="1.1"
           m="4px"
         >
@@ -42,10 +45,19 @@ export const Stats: FC<StatsProps> = React.memo(
           <a href="http://www.leo-ryuta.work">my website's</a> traffic.{" "}
           <Icon name="react" color="blue" /> Click the circle for more details!
         </View>
-        <View fontSize={window.window.outerWidth < 730 ? "2vw" : "1vw"}>
+        <View
+          fontSize={
+            window.window.outerWidth < minWidthHeight.width ? "2vw" : "1vw"
+          }
+        >
           <Statistic.Group
             inverted
-            size={window.window.outerWidth < 730 ? "mini" : "small"}
+            size={
+              window.window.outerWidth < minWidthHeight.width ||
+              window.window.outerHeight < minWidthHeight.height
+                ? "mini"
+                : "small"
+            }
             widths="three"
           >
             <Flexbox width="100%" mt="20px">

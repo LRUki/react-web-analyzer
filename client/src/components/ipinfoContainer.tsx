@@ -34,7 +34,11 @@ export const IpInfoContainer: FC<IpInfoContainerProps> = ({
                   }}
                 >
                   <Button animated="fade" color="grey" inverted>
-                    <Button.Content hidden>{ipData[i].region}</Button.Content>
+                    <Button.Content hidden>
+                      {ipData[i].region.length > 9
+                        ? ipData[i].region.slice(0, 9) + "..."
+                        : ipData[i].region}
+                    </Button.Content>
                     <Button.Content visible>zoom</Button.Content>
                   </Button>
                 </div>

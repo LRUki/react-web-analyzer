@@ -8,7 +8,7 @@ import { Button, Segment } from "semantic-ui-react";
 import { StatsProps, Stats } from "./components/stats";
 import { IpInfoContainer } from "./components/ipinfoContainer";
 import { LocationContainer } from "./components/locationContainer";
-
+import { minWidthHeight } from "./styles/minWidthHeight";
 const RECENT_VISITS_FETCH_SIZE = 5;
 const CLICKED_CIRCLE_FETCH_SIZE = 10;
 export type DisplayMode = "MostRecentVisits" | "ClickedCircle";
@@ -83,8 +83,10 @@ export const Dashboard: FC<{}> = () => {
       <View
         aboveMap
         top="6vh"
-        left={window.window.outerWidth < 730 ? "47vw" : "56vw"}
-        width={window.window.outerWidth < 730 ? "50vw" : "40vw"}
+        left={window.window.outerWidth < minWidthHeight.width ? "47vw" : "56vw"}
+        width={
+          window.window.outerWidth < minWidthHeight.width ? "50vw" : "40vw"
+        }
       >
         <Segment inverted>
           <View>
