@@ -69,7 +69,7 @@ const MapRoot: FC<MapProps> = ({
     if (allFetched && country && region && city && mostRecentIpInfo) {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/truffle22/ckbntzq2q0elx1iqwqk9onysn",
+        style: "API",
         center: [lng, lat],
         zoom: zoom,
       });
@@ -214,7 +214,7 @@ const MapRoot: FC<MapProps> = ({
   return (
     <>
       <div
-        className="mapContainer"
+        className='mapContainer'
         style={{
           position: "absolute",
           top: 0,

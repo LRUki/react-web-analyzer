@@ -8,13 +8,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const DB = require("./mongo");
 const { createCipher } = require("crypto");
-mongoose.connect(
-  "mongodb+srv://admin-leo:Ryuta6040@cluster0-jgh79.mongodb.net/portfolioDB",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect("API", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 let collection = new DB(mongoose, "visits");
 
 app.use(

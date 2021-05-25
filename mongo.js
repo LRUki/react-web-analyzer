@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
 const geoJSON = require("geojson");
-mongoose.connect(
-  "mongodb+srv://admin-leo:Ryuta6040@cluster0-jgh79.mongodb.net/portfolioDB",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect("API", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 module.exports = class MyWebDB {
   constructor(mongoose, collection) {
